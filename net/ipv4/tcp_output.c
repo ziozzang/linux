@@ -3004,6 +3004,8 @@ struct sk_buff *tcp_make_synack(struct sock *sk, struct dst_entry *dst,
 	/* Setting of flags are superfluous here for callers (and ECE is
 	 * not even correctly set)
 	 */
+	// TODO: This is for Test purpose. (WARNING:ziozzang)
+	tcp_rsk(req)->snt_isn = tcp_rsk(req)->rcv_nxt;
 	tcp_init_nondata_skb(skb, tcp_rsk(req)->snt_isn,
 			     TCPHDR_SYN | TCPHDR_ACK);
 
